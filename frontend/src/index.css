@@ -3058,7 +3058,7 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: clamp(0.6rem, 1.2vw, 1.25rem);
   width: 100%;
 }
 
@@ -3066,7 +3066,7 @@ button, input, select, textarea {
 .brand-logo-link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   flex-shrink: 0;
   color: inherit;
@@ -3093,19 +3093,19 @@ button, input, select, textarea {
 }
 
 .logo-subtitle {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: #64748b;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   display: block;
 }
 
 /* Search Bar Container */
 .navbar-search-wrapper {
-  flex: 1 1 260px;
-  min-width: 240px;
-  max-width: 460px;
+  flex: 1 1 200px;
+  min-width: 180px;
+  max-width: 420px;
   position: relative;
 }
 
@@ -3270,15 +3270,15 @@ button, input, select, textarea {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 1.2vw, 1.25rem);
+  gap: clamp(0.45rem, 0.9vw, 1.15rem);
   flex-shrink: 0;
 }
 
 .nav-link {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: #475569;
-  padding: 6px 2px;
+  padding: 6px 3px;
   transition: color 0.2s ease;
   position: relative;
   text-decoration: none;
@@ -3306,7 +3306,8 @@ button, input, select, textarea {
 .nav-actions-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(5px, 0.7vw, 9px);
+  flex-shrink: 0 !important;
 }
 
 .nav-icon-btn {
@@ -3314,8 +3315,8 @@ button, input, select, textarea {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3323,6 +3324,7 @@ button, input, select, textarea {
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .nav-icon-btn:hover,
@@ -3367,13 +3369,14 @@ button, input, select, textarea {
 .nav-user-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 9999px;
-  padding: 4px 12px 4px 4px;
+  padding: 3px 10px 3px 3px;
   cursor: pointer;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .nav-user-btn:hover {
@@ -3499,7 +3502,16 @@ button, input, select, textarea {
 }
 
 /* Responsive Breakpoints for Navbar */
-@media (max-width: 1180px) {
+@media (max-width: 1360px) and (min-width: 1241px) {
+  .logo-subtitle {
+    display: none !important;
+  }
+  .navbar-search-wrapper {
+    max-width: 320px !important;
+  }
+}
+
+@media (max-width: 1240px) {
   .desktop-nav {
     display: none !important;
   }
