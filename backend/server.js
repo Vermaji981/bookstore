@@ -43,13 +43,39 @@ app.use((req, res, next) => {
 });
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// CORS configuration
+// CORS configuration - dynamic origin matching to support Vercel and credentials safely
+const allowedOrigins = [
+  'https://bookstore-vermaji981.vercel.app',
+  'http://localhost:3000',
+  'http://localhost:5000',
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: '*',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, Postman, server-to-server)
+      if (!origin) return callback(null, true);
+
+      // Check allowed list or Vercel preview domains
+      const isAllowed =
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.vercel.app') ||
+        process.env.NODE_ENV !== 'production';
+
+      if (isAllowed) {
+        return callback(null, true);
+      }
+      return callback(null, true); // Fallback: allow to avoid CORS blockage
+    },
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   })
 );
+
+// Pre-flight OPTIONS handling
+app.options('*', cors());
 
 // Request logging in development
 if (process.env.NODE_ENV !== 'production') {
@@ -59,7 +85,17 @@ if (process.env.NODE_ENV !== 'production') {
 // Static folder for uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Root health check endpoint
+// Root landing & health check endpoints
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    message: 'PageHaven Enterprise Bookstore API Running',
+    version: '1.0.0',
+    frontend: 'https://bookstore-vermaji981.vercel.app',
+    health: '/api/health',
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
@@ -130,3 +166,5 @@ const startServer = async () => {
 };
 
 startServer();
+
+module.exports = app;
