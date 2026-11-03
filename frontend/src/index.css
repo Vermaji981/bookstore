@@ -3373,15 +3373,70 @@ button, input, select, textarea {
 }
 
 @media (max-width: 640px) {
+  .navbar-container {
+    gap: 0.5rem !important;
+  }
   .nav-compare-btn {
+    display: none !important;
+  }
+  .nav-wishlist-btn {
     display: none !important;
   }
   .nav-actions-group {
     gap: 6px !important;
+    flex-shrink: 0 !important;
   }
   .nav-icon-btn {
     width: 36px !important;
     height: 36px !important;
+    min-width: 36px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .nav-user-name,
+  .nav-user-chevron {
+    display: none !important;
+  }
+  .nav-user-btn {
+    padding: 0 !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    flex-shrink: 0 !important;
+    border: 1.5px solid #e2e8f0 !important;
+  }
+  .nav-user-avatar {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 0.85rem !important;
+  }
+  .mobile-hamburger-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 10px !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #334155 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    transition: all 0.2s ease !important;
+  }
+  .mobile-hamburger-btn:hover {
+    background: #eef2ff !important;
+    border-color: #c7d2fe !important;
+    color: var(--primary) !important;
   }
   .brand-logo-img {
     width: 34px !important;
@@ -3389,6 +3444,31 @@ button, input, select, textarea {
   }
   .brand-title {
     font-size: 1.15rem !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-actions-group {
+    gap: 4px !important;
+  }
+  .nav-icon-btn,
+  .nav-user-btn,
+  .mobile-hamburger-btn {
+    width: 33px !important;
+    height: 33px !important;
+    min-width: 33px !important;
+  }
+  .nav-user-avatar {
+    width: 31px !important;
+    height: 31px !important;
+  }
+  .brand-logo-img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .brand-title {
+    font-size: 1.05rem !important;
   }
 }
 

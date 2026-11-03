@@ -286,7 +286,7 @@ const Navbar = () => {
               {/* Wishlist Icon */}
               <Link
                 to={user ? '/dashboard?tab=wishlist' : '/login'}
-                className="nav-icon-btn"
+                className="nav-icon-btn nav-wishlist-btn"
                 title="Saved Wishlist"
               >
                 <Heart size={20} />
@@ -314,7 +314,7 @@ const Navbar = () => {
                       {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
                     </div>
                     <span className="nav-user-name">{user.name?.split(' ')[0]}</span>
-                    <ChevronDown size={14} />
+                    <ChevronDown size={14} className="nav-user-chevron" />
                   </button>
 
                   {userDropdownOpen && (
