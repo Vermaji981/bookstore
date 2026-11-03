@@ -39,7 +39,11 @@ const CustomerNotificationBell = () => {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, []);
 
   const handleMarkAllRead = async () => {
@@ -79,7 +83,9 @@ const CustomerNotificationBell = () => {
       </button>
 
       {isOpen && (
-        <div className="customer-notif-dropdown animate-slide-up" role="menu">
+        <>
+          <div className="customer-notif-backdrop" onClick={() => setIsOpen(false)} aria-hidden="true" />
+          <div className="customer-notif-dropdown animate-slide-up" role="menu">
           <div className="customer-notif-header">
             <div>
               <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
@@ -155,6 +161,7 @@ const CustomerNotificationBell = () => {
             </Link>
           </div>
         </div>
+        </>
       )}
     </div>
   );

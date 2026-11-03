@@ -438,6 +438,20 @@ const Navbar = () => {
                 <Link to="/track-order" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
                   Track Order
                 </Link>
+                <Link to={user ? '/dashboard?tab=wishlist' : '/login'} className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
+                  Wishlist {wishlistCount > 0 ? `(${wishlistCount})` : ''}
+                </Link>
+                <button
+                  type="button"
+                  className="mobile-nav-link"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setIsCompareOpen(true);
+                  }}
+                  style={{ background: 'transparent', border: 'none', textAlign: 'left', font: 'inherit', cursor: 'pointer', padding: '0.65rem 0.85rem' }}
+                >
+                  Book Comparison {compareList.length > 0 ? `(${compareList.length})` : ''}
+                </button>
                 <Link to="/about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>
                   About Us
                 </Link>
