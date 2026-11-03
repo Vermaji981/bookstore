@@ -70,16 +70,16 @@ const CustomerNotificationBell = () => {
   if (!user) return null;
 
   return (
-    <div style={{ position: 'relative' }} ref={dropdownRef}>
+    <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }} ref={dropdownRef}>
       <button
         type="button"
-        className="nav-icon-btn"
+        className={`nav-icon-btn ${isOpen ? 'active' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
         title="Notifications"
         aria-label="Customer Notifications"
       >
         <Bell size={20} />
-        {unreadCount > 0 && <span className="nav-badge-pill">{unreadCount}</span>}
+        {unreadCount > 0 && <span className="nav-badge-pill danger">{unreadCount}</span>}
       </button>
 
       {isOpen && (

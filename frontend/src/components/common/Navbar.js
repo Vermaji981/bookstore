@@ -304,11 +304,11 @@ const Navbar = () => {
 
               {/* User Account / Auth Dropdown */}
               {user ? (
-                <div style={{ position: 'relative' }}>
+                <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
                   <button
                     type="button"
                     onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                    className="nav-user-btn"
+                    className={`nav-user-btn ${userDropdownOpen ? 'active' : ''}`}
                   >
                     <div className="nav-user-avatar">
                       {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
