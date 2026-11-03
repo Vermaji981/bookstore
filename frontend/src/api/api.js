@@ -1,7 +1,24 @@
 import axios from 'axios';
 
+const getBaseURL = () => {
+  let url = process.env.REACT_APP_API_URL;
+  if (!url || !url.trim()) {
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      url = 'https://bookstore-lgo4.onrender.com/api';
+    } else {
+      url = 'http://localhost:5000/api';
+    }
+  }
+
+  url = url.trim().replace(/\/+$/, '');
+  if (!url.endsWith('/api')) {
+    url += '/api';
+  }
+  return url;
+};
+
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: getBaseURL(),
   headers: {
     'Content-Type': 'application/json',
   },
