@@ -62,34 +62,11 @@ const FeaturedSection = () => {
           </div>
 
           {/* Interactive Filter Tabs */}
-          <div
-            className="scrollable-tabs"
-            style={{
-              backgroundColor: '#e2e8f0',
-              padding: '0.35rem',
-              borderRadius: '9999px',
-              maxWidth: '100%',
-            }}
-          >
+          <div className="featured-tabs-wrapper">
             <button
               type="button"
               onClick={() => setActiveTab('featured')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                padding: 'clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 1.15rem)',
-                borderRadius: '9999px',
-                border: 'none',
-                backgroundColor: activeTab === 'featured' ? 'white' : 'transparent',
-                color: activeTab === 'featured' ? 'var(--primary)' : '#475569',
-                fontWeight: 700,
-                fontSize: '0.85rem',
-                cursor: 'pointer',
-                boxShadow: activeTab === 'featured' ? 'var(--shadow-sm)' : 'none',
-                transition: 'all 0.2s ease',
-                whiteSpace: 'nowrap',
-              }}
+              className={`featured-tab-btn ${activeTab === 'featured' ? 'active' : ''}`}
             >
               <Sparkles size={16} />
               <span>Featured</span>
@@ -98,22 +75,7 @@ const FeaturedSection = () => {
             <button
               type="button"
               onClick={() => setActiveTab('bestsellers')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                padding: 'clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 1.15rem)',
-                borderRadius: '9999px',
-                border: 'none',
-                backgroundColor: activeTab === 'bestsellers' ? 'white' : 'transparent',
-                color: activeTab === 'bestsellers' ? 'var(--primary)' : '#475569',
-                fontWeight: 700,
-                fontSize: '0.85rem',
-                cursor: 'pointer',
-                boxShadow: activeTab === 'bestsellers' ? 'var(--shadow-sm)' : 'none',
-                transition: 'all 0.2s ease',
-                whiteSpace: 'nowrap',
-              }}
+              className={`featured-tab-btn ${activeTab === 'bestsellers' ? 'active' : ''}`}
             >
               <Flame size={16} />
               <span>Best Sellers</span>
@@ -122,22 +84,7 @@ const FeaturedSection = () => {
             <button
               type="button"
               onClick={() => setActiveTab('newarrivals')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                padding: 'clamp(0.4rem, 1.5vw, 0.5rem) clamp(0.75rem, 2vw, 1.15rem)',
-                borderRadius: '9999px',
-                border: 'none',
-                backgroundColor: activeTab === 'newarrivals' ? 'white' : 'transparent',
-                color: activeTab === 'newarrivals' ? 'var(--primary)' : '#475569',
-                fontWeight: 700,
-                fontSize: '0.85rem',
-                cursor: 'pointer',
-                boxShadow: activeTab === 'newarrivals' ? 'var(--shadow-sm)' : 'none',
-                transition: 'all 0.2s ease',
-                whiteSpace: 'nowrap',
-              }}
+              className={`featured-tab-btn ${activeTab === 'newarrivals' ? 'active' : ''}`}
             >
               <Clock size={16} />
               <span>New Arrivals</span>

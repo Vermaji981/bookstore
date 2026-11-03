@@ -1629,6 +1629,99 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   FEATURED DISCOVERY SECTION TABS (RESPONSIVE)
+   ========================================================================== */
+.featured-tabs-wrapper {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f1f5f9;
+  padding: 5px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  gap: 4px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.featured-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: none;
+  background-color: transparent;
+  color: #475569;
+  font-weight: 700;
+  font-size: 0.86rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-tab-btn:hover {
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.featured-tab-btn.active {
+  background-color: #ffffff;
+  color: var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.featured-tab-btn.active svg {
+  color: var(--primary);
+  stroke: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .featured-tabs-wrapper {
+    display: flex;
+    width: 100%;
+    border-radius: 14px;
+    padding: 4px;
+    gap: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .featured-tab-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 4px;
+    font-size: 0.76rem;
+    gap: 4px;
+    border-radius: 10px;
+  }
+  .featured-tab-btn span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+[data-theme="dark"] .featured-tabs-wrapper {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme="dark"] .featured-tab-btn {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .featured-tab-btn:hover {
+  color: #f8fafc;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .featured-tab-btn.active {
+  background-color: #0f172a;
+  color: #818cf8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
    BOOK DETAILS: HERO, COVER, FORMAT SELECTOR & TRUST BADGES
    ========================================================================== */
 .book-details-main-card {
