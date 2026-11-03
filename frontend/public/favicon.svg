@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4338ca" />
+      <stop offset="50%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+
+    <!-- Page Shadow -->
+    <linearGradient id="pageGradLeft" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+    <linearGradient id="pageGradRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cbd5e1" />
+      <stop offset="15%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <!-- Gold Accent Ribbon -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1e1b4b" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Tile -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Inner Soft Glow Border -->
+  <rect x="8" y="8" width="496" height="496" rx="104" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="8" />
+
+  <!-- Open Book Group -->
+  <g filter="url(#shadow)" transform="translate(0, 16)">
+    <!-- Book Cover Base (Dark Indigo Silhouette) -->
+    <path d="M96,356 C150,332 215,338 256,366 C297,338 362,332 416,356 L416,212 C362,188 297,194 256,222 C215,194 150,188 96,212 Z" fill="#312e81" opacity="0.6" />
+
+    <!-- Left Book Page Stack -->
+    <path d="M104,340 C154,320 216,326 256,352 L256,192 C216,166 154,160 104,180 Z" fill="url(#pageGradLeft)" />
+    
+    <!-- Right Book Page Stack -->
+    <path d="M408,340 C358,320 296,326 256,352 L256,192 C296,166 358,160 408,180 Z" fill="url(#pageGradRight)" />
+
+    <!-- Left Page Texture Lines -->
+    <path d="M136,218 C172,204 214,208 238,222 M136,252 C172,238 214,242 238,256 M136,286 C172,272 214,276 238,290" stroke="#94a3b8" stroke-width="6" stroke-linecap="round" opacity="0.45" />
+
+    <!-- Right Page Texture Lines -->
+    <path d="M376,218 C340,204 298,208 274,222 M376,252 C340,238 298,242 274,256 M376,286 C340,272 298,276 274,290" stroke="#94a3b8" stroke-width="6" stroke-linecap="round" opacity="0.45" />
+
+    <!-- Center Spine Shadow -->
+    <path d="M253,190 L259,190 L259,354 L253,354 Z" fill="#64748b" opacity="0.3" />
+
+    <!-- Gold Bookmark Ribbon hanging down center -->
+    <path d="M246,170 L266,170 L266,310 L256,296 L246,310 Z" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Sparkle Star (Top Right) -->
+  <path d="M388,112 Q388,136 412,136 Q388,136 388,160 Q388,136 364,136 Q388,136 388,112 Z" fill="#fbbf24" />
+  <circle cx="340" cy="116" r="6" fill="#fef08a" opacity="0.8" />
+</svg>
+
